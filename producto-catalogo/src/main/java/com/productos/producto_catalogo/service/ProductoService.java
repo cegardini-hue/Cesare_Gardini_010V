@@ -8,5 +8,6 @@ public interface ProductoService {
     List<Producto> listarProductos();
     Optional<Producto> obtenerPorId(Long id);
     Producto crearProducto(Producto producto);
+    Producto actualizarProducto(Long id, Producto producto);
     void eliminarProducto(Long id);
 }
