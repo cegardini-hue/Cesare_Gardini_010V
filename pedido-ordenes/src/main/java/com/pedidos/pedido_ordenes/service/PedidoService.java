@@ -9,4 +9,6 @@ public interface PedidoService {
     Optional<Pedido> obtenerPorId(Long id);
     List<Pedido> obtenerPorUsuario(Long usuarioId);
     Pedido crearPedido(Pedido pedido);
+    Pedido actualizarPedido(Long id, Pedido pedido);
+    void eliminarPedido(Long id);
 }

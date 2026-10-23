@@ -6,6 +6,7 @@ import com.autentificacion_usuario.autentificador.service.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -18,7 +19,7 @@ public class AuthController {
     }
 
     @PostMapping("/registro")
-    public ResponseEntity<Usuario> registrar(@RequestBody Usuario usuario) {
+    public ResponseEntity<Usuario> registrar(@Valid @RequestBody Usuario usuario) {
         return new ResponseEntity<>(authService.registrar(usuario), HttpStatus.CREATED);
     }
 
@@ -33,5 +34,16 @@ public class AuthController {
         return authService.obtenerPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/usuario/{id}")
+    public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Long id, @Valid @RequestBody Usuario usuario) {
+        return ResponseEntity.ok(authService.actualizar(id, usuario));
+    }
+
+    @DeleteMapping("/usuario/{id}")
+    public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id) {
+        authService.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
 }
