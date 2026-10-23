@@ -3,20 +3,25 @@ package com.autentificacion_usuario.autentificador.config;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 @Component
 public class JwtUtil {
 
-    // Clave secreta (debe tener al menos 256 bits / 32 caracteres)
-    private final String SECRET_KEY = "mi_clave_secreta_super_segura_para_jwt_32_bytes";
+    private final String secretKey;
     private final long EXPIRATION_TIME = 86400000; // 24 Horas en milisegundos
 
+    public JwtUtil(@Value("${jwt.secret}") String secretKey) {
+        this.secretKey = secretKey;
+    }
+
     private Key getSigningKey() {
-        return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
+        return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
     }
 
     public String generarToken(String email, String rol) {
