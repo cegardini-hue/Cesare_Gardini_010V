@@ -1,5 +1,24 @@
 # Microservicios de la tienda
 
+## Base de datos MySQL con XAMPP
+
+Inicia **MySQL** desde el panel de XAMPP. En phpMyAdmin (`http://localhost/phpmyadmin`),
+abre la pestaña **SQL** y crea una base para cada microservicio:
+
+```sql
+CREATE DATABASE tienda_auth CHARACTER SET utf8mb4;
+CREATE DATABASE tienda_productos CHARACTER SET utf8mb4;
+CREATE DATABASE tienda_pedidos CHARACTER SET utf8mb4;
+CREATE DATABASE tienda_pagos CHARACTER SET utf8mb4;
+```
+
+Los servicios ya están configurados para conectarse a MySQL en `localhost:3306`, con
+usuario `root` y contraseña vacía (valores predeterminados habituales de XAMPP). Al
+iniciar, Hibernate crea o actualiza las tablas automáticamente. Si cambiaste el puerto
+o las credenciales de MySQL, define `MYSQL_HOST`, `MYSQL_PORT`, `MYSQL_USER` y
+`MYSQL_PASSWORD` en el entorno antes de iniciar los servicios. `ddl-auto=update` está
+destinado al desarrollo local.
+
 ## API Gateway
 
 El gateway centraliza el acceso a los cuatro microservicios en `http://localhost:8080`.

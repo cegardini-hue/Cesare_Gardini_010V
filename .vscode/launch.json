@@ -1,0 +1,54 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AutentificadorApplication<autentificador>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.autentificacion_usuario.autentificador.AutentificadorApplication",
+            "projectName": "autentificador",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GatewayApplication<gateway>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.tienda.gateway.GatewayApplication",
+            "projectName": "gateway",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PagoApplication<pago>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.pagos.pago.PagoApplication",
+            "projectName": "pago",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-PedidoOrdenesApplication<pedido-ordenes>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.pedidos.pedido_ordenes.PedidoOrdenesApplication",
+            "projectName": "pedido-ordenes",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ProductoCatalogoApplication<producto-catalogo>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.productos.producto_catalogo.ProductoCatalogoApplication",
+            "projectName": "producto-catalogo",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
